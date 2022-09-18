@@ -1,11 +1,11 @@
 import './App.css';
-import About from './Components/About';
+// import About from './Components/About';
 import NavBar from './Components/NavBar';
 import TextForm from './Components/TextForm';
 import React, { useState } from 'react'
 import Alert from './Components/Alert';
-import { Routes, Route } from 'react-router-dom';
-import { BrowserRouter as Router } from "react-router-dom";
+// import { Routes, Route } from 'react-router-dom';
+// import { BrowserRouter as Router } from "react-router-dom";
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
     });
     setInterval(() => {
       setAlert(null)
-    }, 5000);
+    }, 3000);
   }
 
   const toggleBtn = () => {
@@ -123,7 +123,11 @@ function App() {
   // }
   return (
     <>
-      <Router>
+      <NavBar title="TextUtils" about="About" mode={mode} myStyle={myStyle} toggleBtn={toggleBtn} />
+      <Alert alert={alert} />
+      {/* <About mode={mode} myStyle={myStyle} toggleBtn={toggleBtn} /> */}
+      <TextForm heading="Enter Text To Analyze" mode={mode} showAlert={showAlert} myStyle={myStyle} />
+      {/* <Router>
         <NavBar title="TextUtils" about="About" mode={mode} myStyle={myStyle} toggleBtn={toggleBtn} />
         <Alert alert={alert} />
         <Routes>
@@ -132,7 +136,7 @@ function App() {
           <Route exact path="/about" element={<About mode={mode} myStyle={myStyle} toggleBtn={toggleBtn} />}>
           </Route>
         </Routes>
-      </Router>
+      </Router> */}
     </>
   );
 }

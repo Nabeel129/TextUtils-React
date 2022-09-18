@@ -59,6 +59,7 @@ function TextForm(props) {
     const clearSelectedText = () => {
         let Textarea = document.getElementById("Textarea")
         if (Textarea.selectionStart === Textarea.selectionEnd) {
+            props.showAlert('No Text Selected to be Cleared', 'danger');
             return; // nothing is selected
         }
         Textarea.setRangeText("", Textarea.selectionStart, Textarea.selectionEnd, "end");
@@ -70,7 +71,9 @@ function TextForm(props) {
     const uppercaseSelectedText = () => {
         let Textarea = document.getElementById("Textarea")
         if (Textarea.selectionStart === Textarea.selectionEnd) {
+            props.showAlert('No Text Selected to be Uppercased', 'danger');
             return; // nothing is selected
+
         }
         let selected = Textarea.value.slice(Textarea.selectionStart, Textarea.selectionEnd);
         Textarea.setRangeText(selected.toUpperCase());
@@ -81,6 +84,7 @@ function TextForm(props) {
     const lowercaseSelectedText = () => {
         let Textarea = document.getElementById("Textarea")
         if (Textarea.selectionStart === Textarea.selectionEnd) {
+            props.showAlert('No Text Selected to be Lowercased', 'danger');
             return; // nothing is selected
         }
         let selected = Textarea.value.slice(Textarea.selectionStart, Textarea.selectionEnd);
@@ -104,15 +108,15 @@ function TextForm(props) {
                 <div className="mb-3">
                     <textarea className="form-control" onChange={handleChange} style={props.myStyle} value={text} id="Textarea" placeholder="Enter Text Here" rows="10" width="40vw"></textarea>
                 </div>
-                <button className="btn btn-primary mx-1 my-1" style={props.myStyle} onClick={UpperCase}>UPPERCASE</button>
-                <button className="btn btn-primary mx-1 my-1" style={props.myStyle} onClick={lowercase}>lowercase</button>
-                <button className="btn btn-primary mx-1 my-1" style={props.myStyle} onClick={clearText}>Clear</button>
-                <button className="btn btn-primary mx-1 my-1" style={props.myStyle} onClick={copyText}>Copy Text</button>
-                <button className="btn btn-primary mx-1 my-1" style={props.myStyle} onClick={capitalizeText}>Capitalize Text</button>
-                <button className="btn btn-primary mx-1 my-1" style={props.myStyle} onClick={removeSpaces}>Remove Extra Spaces</button>
-                <button className="btn btn-primary mx-1 my-1" style={props.myStyle} onClick={uppercaseSelectedText}>UPPERCASE Selected Text</button>
-                <button className="btn btn-primary mx-1 my-1" style={props.myStyle} onClick={clearSelectedText}>Clear Selected Text</button>
-                <button className="btn btn-primary mx-1 my-1" style={props.myStyle} onClick={lowercaseSelectedText}>lowercase Selected Text</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={UpperCase}>UPPERCASE</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={lowercase}>lowercase</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={clearText}>Clear</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={copyText}>Copy Text</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={capitalizeText}>Capitalize Text</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={removeSpaces}>Remove Extra Spaces</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={uppercaseSelectedText}>UPPERCASE Selected Text</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={clearSelectedText}>Clear Selected Text</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={lowercaseSelectedText}>lowercase Selected Text</button>
                 <p>
 
                 </p>
