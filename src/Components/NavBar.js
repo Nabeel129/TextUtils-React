@@ -1,27 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function NavBar(props) {
     return (
         <>
             <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`} style={props.myStyle}>
                 <div className="container-fluid" style={props.myStyle}>
-                    <Link className="navbar-brand" style={props.myStyle} to="/">{props.title}</Link>
+                    <a className="navbar-brand" style={props.myStyle} href="/">{props.title}</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="/navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item" >
-                                <Link style={props.myStyle} className="nav-link active" aria-current="page" to="/">Home</Link>
+                                <a style={props.myStyle} className="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
+                            {/* <li className="nav-item" >
+                                <a style={props.myStyle} className="nav-link" href="/about">{props.about}</a>
                             </li>
                             <li className="nav-item" >
-                                <Link style={props.myStyle} className="nav-link" to="/about">{props.about}</Link>
-                            </li>
-                            <li className="nav-item" >
-                                <Link style={props.myStyle} className="nav-link" to='/'>Contact</Link>
-                            </li>
+                                <a style={props.myStyle} className="nav-link" href='/'>Contact</a>
+                            </li> */}
                         </ul>
                     </div>
                     {/* <div className="d-flex float-end">
